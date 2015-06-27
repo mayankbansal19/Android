@@ -1,4 +1,4 @@
-package com.example.db;
+package com.example.questionaire.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

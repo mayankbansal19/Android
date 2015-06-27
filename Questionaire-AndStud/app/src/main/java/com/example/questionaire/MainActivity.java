@@ -13,8 +13,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import com.example.questionaire.db.CategoriesDataSource;
-import com.example.questionaire.db.Category;
+import com.example.db.CategoriesDataSource;
+import com.example.db.Category;
 
 public class MainActivity extends ListActivity
 {

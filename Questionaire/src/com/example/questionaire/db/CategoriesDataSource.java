@@ -1,4 +1,4 @@
-package com.example.db;
+package com.example.questionaire.db;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,21 +10,17 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class SubCategoriesDataSource
+public class CategoriesDataSource
 {
 
     // Database fields
     private SQLiteDatabase database;
-    private SubCateogorySQLiteHelper dbHelper;
-    private String[]       allColumns;
+    private CategoriesSQLiteHelper dbHelper;
+    private String[]       allColumns = { CategoriesSQLiteHelper.COLUMN_ID, CategoriesSQLiteHelper.COLUMN_TITLE, CategoriesSQLiteHelper.COLUMN_DESCRIPTION };
 
-    public SubCategoriesDataSource(Context context)
+    public CategoriesDataSource(Context context)
     {
-        dbHelper = new SubCateogorySQLiteHelper(context);
-        allColumns = new String[3];
-        allColumns[0] = dbHelper.COLUMN_ID;
-        allColumns[1] = dbHelper.COLUMN_TITLE;
-        allColumns[2] = dbHelper.COLUMN_DESCRIPTION;
+        dbHelper = new CategoriesSQLiteHelper(context);
     }
 
     public void open() throws SQLException
@@ -41,10 +37,10 @@ public class SubCategoriesDataSource
     {
         Log.d("TAG","Create category...");
         ContentValues values = new ContentValues();
-        values.put(dbHelper.COLUMN_TITLE, title);
-        values.put(dbHelper.COLUMN_DESCRIPTION, description);
-        long insertId = database.insert(dbHelper.TABLE_NAME, null, values);
-        Cursor cursor = database.query(dbHelper.TABLE_NAME, allColumns, dbHelper.COLUMN_ID + " = " + insertId, null, null,
+        values.put(CategoriesSQLiteHelper.COLUMN_TITLE, title);
+        values.put(CategoriesSQLiteHelper.COLUMN_DESCRIPTION, description);
+        long insertId = database.insert(CategoriesSQLiteHelper.TABLE_NAME, null, values);
+        Cursor cursor = database.query(CategoriesSQLiteHelper.TABLE_NAME, allColumns, CategoriesSQLiteHelper.COLUMN_ID + " = " + insertId, null, null,
                 null, null);
         Log.d("TAG",""+cursor.getCount());
         cursor.moveToFirst();
@@ -57,14 +53,14 @@ public class SubCategoriesDataSource
     {
         long id = category.getId();
         Log.d("TAG","Category deleted with id: " + id);
-        database.delete(dbHelper.TABLE_NAME, dbHelper.COLUMN_ID + " = " + id, null);
+        database.delete(CategoriesSQLiteHelper.TABLE_NAME, CategoriesSQLiteHelper.COLUMN_ID + " = " + id, null);
     }
 
     public List<Category> getAllCategories()
     {
         List<Category> categories = new ArrayList<Category>();
 
-        Cursor cursor = database.query(dbHelper.TABLE_NAME, allColumns, null, null, null, null, null);
+        Cursor cursor = database.query(CategoriesSQLiteHelper.TABLE_NAME, allColumns, null, null, null, null, null);
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast())

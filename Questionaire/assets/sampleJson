@@ -1,0 +1,28 @@
+{
+    "Categories": [
+        {
+            "Type": "SubCategory",
+            "Name": "Animals",
+            "Description": "Do you know about Tiger??",
+            "ImageId": "abc.com"
+        },
+        {
+            "Type": "SubCategory",
+            "Name": "Cricket",
+            "Description": "India's heart lies in this game.",
+            "ImageId": "xyz.com"
+        },
+        {
+            "Type": "SubCategory",
+            "Name": "Bollywood",
+            "Description": "Sholay k deewano :P",
+            "ImageId": "google.com"
+        },
+        {
+            "Type": "SubCategory",
+            "Name": "Hollywood",
+            "Description": "Titanic k alawa kuch pata hai?",
+            "ImageId": "microsoft.com"
+        }
+    ]
+}

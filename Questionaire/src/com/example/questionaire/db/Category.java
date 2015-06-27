@@ -1,4 +1,4 @@
-package com.example.db;
+package com.example.questionaire.db;
 
 public class Category
 {

@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.db.Category;
+import com.example.questionaire.db.Category;
 
 public class CategoryListAdapeter extends BaseAdapter
 {

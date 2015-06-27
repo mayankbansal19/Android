@@ -1,4 +1,4 @@
-package com.example.db;
+package com.example.questionaire.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,8 +17,7 @@ public class CategoriesSQLiteHelper extends SQLiteOpenHelper
     private static final int    DATABASE_VERSION = 1;
 
     // Database creation sql statement
-    private static final String DATABASE_CREATE  = "create table " + TABLE_NAME + "(" + COLUMN_ID
-                                                         + " integer primary key autoincrement, " + COLUMN_TITLE + " text not null, " + COLUMN_DESCRIPTION + " text not null)";
+    private static final String DATABASE_CREATE  = "create table " + TABLE_NAME + "(" + COLUMN_ID  + " integer primary key autoincrement, " + COLUMN_TITLE + " text not null, " + COLUMN_DESCRIPTION + " text not null)";
 
     public CategoriesSQLiteHelper(Context context)
     {
